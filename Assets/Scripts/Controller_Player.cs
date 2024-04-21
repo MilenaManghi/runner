@@ -7,6 +7,10 @@ public class Controller_Player : MonoBehaviour
     private float initialSize;
     private int i = 0;
     private bool floored;
+    public bool shield;
+    public float timeShield;
+    public float timePowerUp;
+
 
     private void Start()
     {
@@ -17,6 +21,11 @@ public class Controller_Player : MonoBehaviour
     void Update()
     {
         GetInput();
+        if(shield == true)
+        {
+            Escudo();
+        }
+       
     }
 
     private void GetInput()
@@ -66,14 +75,39 @@ public class Controller_Player : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    private void Escudo()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+       
+        
+
+        if (timeShield > 0)
         {
-            Destroy(this.gameObject);
-            Controller_Hud.gameOver = true;
+            shield = true;
+            timeShield -= Time.deltaTime;
+        }
+        else
+        {
+            shield = false;
         }
 
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(shield == false)
+        {
+          if (collision.gameObject.CompareTag("Enemy"))
+          {
+            Destroy(this.gameObject);
+            Controller_Hud.gameOver = true;
+          }
+        }
+
+        if (collision.gameObject.CompareTag("Shield"))
+        {
+            timeShield = timePowerUp;
+            shield = true;
+        }
         if (collision.gameObject.CompareTag("Floor"))
         {
             floored = true;
