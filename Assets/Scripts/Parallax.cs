@@ -5,6 +5,7 @@ public class Parallax : MonoBehaviour
     public GameObject cam;
     private float length, startPos;
     public float parallaxEffect;
+   
 
     void Start()
     {
