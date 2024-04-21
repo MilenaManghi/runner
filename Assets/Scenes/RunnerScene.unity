@@ -392,9 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 4641428172921375839, guid: ad4857fb319b5014696c8c201b507222, type: 3}
-  - {fileID: 4362255490418720725, guid: 10839c286a1f27947bc1fa05aee0bfdb, type: 3}
-  - {fileID: 9145002132079440597, guid: 0e6260b13f6e84c47b94dd28da588bcd, type: 3}
+  - {fileID: 1281306857101439446, guid: 31498c96df6c25847883a5a2fdcbbf5d, type: 3}
   instantiatePos: {fileID: 432534838}
   respawningTimer: 0
 --- !u!4 &432534840
@@ -1138,7 +1136,7 @@ GameObject:
   - component: {fileID: 1018040024}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

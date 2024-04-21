@@ -23,4 +23,6 @@ public class Controller_Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    
 }
