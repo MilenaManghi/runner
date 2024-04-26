@@ -10,6 +10,7 @@ public class Controller_Player : MonoBehaviour
     public bool shield;
     public float timeShield;
     public float timePowerUp;
+    public float velocidad = 10;
 
 
     private void Start()
@@ -32,6 +33,7 @@ public class Controller_Player : MonoBehaviour
     {
         Jump();
         Duck();
+        Move();
     }
 
     private void Jump()
@@ -42,6 +44,17 @@ public class Controller_Player : MonoBehaviour
             {
                 rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             }
+        }
+    }
+    private void Move()
+    {
+        if(Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(new Vector3(-velocidad, 0, 0),ForceMode.Impulse);
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(new Vector3(velocidad, 0, 0),ForceMode.Impulse);
         }
     }
 
@@ -107,6 +120,7 @@ public class Controller_Player : MonoBehaviour
         {
             timeShield = timePowerUp;
             shield = true;
+            Destroy(this.gameObject);
         }
         if (collision.gameObject.CompareTag("Floor"))
         {
